@@ -81,7 +81,7 @@ Int_t LDFDataReader::readDataEvent(){
       ParameterID = (temp_word & 0xFF000000) >> 24;
       ParameterData = ((temp_word & 0x000000FF) << 8) | ((temp_word & 0x0000FF00) >> 8);
 
-      data[ParameterID] = ParameterData;
+      data[ParameterID-1] = ParameterData; // index of LDF data is from 1
       //cout << "Parameter values" << "\t" << ParameterID << "\t" << ParameterData << endl;
       channels_read++;
     }
